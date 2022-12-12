@@ -24,32 +24,3 @@ for (let index = 0; index < nombre.length; index++) {
 }//for index
 console.log(letra, contFinal);
 
-
-
-
-
-
-// let contador = 0;
-
-// function caracterRepetido(){
-
-//     for(let i = 0; i < nombre.length; i++){
-//         console.log(i)
-//         let caracterActual = null;
-
-//         if(caracterActual == null){
-//             caracterActual = nombre[i]
-//         }else if(caracterActual = nombre[i]){
-
-//         }
-
-
-
-//     }
-
-// }
-
-// console.log(nombre);
-
-// caracterRepetido();
-
