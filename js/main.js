@@ -37,7 +37,11 @@ btnEnviar.addEventListener("click", function(event){
     let exampleFormControlInput1 = document.getElementById("exampleFormControlInput1");//email
     let exampleFormControlInput2 = document.getElementById("exampleFormControlInput2");//RFC
     let exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
+    let flexCheckDefault = document.getElementById("flexCheckDefault");
+
     let alertError = document.getElementById("alertError");
+
+
     exampleFormControlTextarea1.value = exampleFormControlTextarea1.value.trim();
     alertError.style.display = "none";
     alertError.innerHTML = "";
@@ -86,6 +90,14 @@ btnEnviar.addEventListener("click", function(event){
     if((idTimeout != undefined) && (idTimeout != null)){
         clearTimeout(idTimeout);
     }//idTimeout
+
+    //if Ternario
+    // alertError.innerHTML += (! flexCheckDefault.checked) ? "<br/> Debes aceptar los términos y condiciones" : "";
+
+    if(! flexCheckDefault.checked){
+        alertError.innerHTML += "<br/>Debes aceptar los términos y condiciones";
+        alertError.style.display = "block";
+    }// checked
 
     if(validos == 3){
         idTimeout = setTimeout(function(){
