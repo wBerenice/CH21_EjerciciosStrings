@@ -26,9 +26,11 @@ console.log(letra, contFinal);
 
 
 let btnEnviar = document.getElementById("btnEnviar");
+let idTimeout;
 
 btnEnviar.addEventListener("click", function(event){
     event.preventDefault();
+    let validos = 0;
     
     let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -53,7 +55,8 @@ btnEnviar.addEventListener("click", function(event){
         exampleFormControlTextarea1.select();
         exampleFormControlTextarea1.style.border = "solid red 1px"
     }else{
-        exampleFormControlTextarea1.style.border = ""
+        exampleFormControlTextarea1.style.border = "solid green 1px"
+        validos++;
     }
 
     if(exampleFormControlInput1.value.match(emailRegex) == null){
@@ -61,7 +64,8 @@ btnEnviar.addEventListener("click", function(event){
         alertError.innerHTML += "<br/>El correo electrónico no es válido"
         exampleFormControlInput1.style.border = "solid red 1px"
     }else{
-        exampleFormControlInput1.style.border = ""
+        exampleFormControlInput1.style.border = "solid green 1px"
+        validos++;
     }
     
     let RFCRegex = /^[A-Z]{4}[0-9]{6}[A-Z0-9]{3}$/;
@@ -75,10 +79,21 @@ btnEnviar.addEventListener("click", function(event){
         alertError.innerHTML += "<br/>El RFC no es válido"
         exampleFormControlInput2.style.border = "solid red 1px"
     }else{
-        exampleFormControlInput2.style.border = ""
+        exampleFormControlInput2.style.border = "solid green 1px";
+        validos++;
     }
 
+    if((idTimeout != undefined) && (idTimeout != null)){
+        clearTimeout(idTimeout);
+    }//idTimeout
 
+    if(validos == 3){
+        idTimeout = setTimeout(function(){
+            exampleFormControlTextarea1.style.border = "";
+            exampleFormControlInput1.style.border = "";
+            exampleFormControlInput2.style.border = "";
+        }, 2000);
+    }//==3
 
 });
 
