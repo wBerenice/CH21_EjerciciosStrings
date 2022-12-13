@@ -51,12 +51,18 @@ btnEnviar.addEventListener("click", function(event){
         alertError.style.display = "block";
         exampleFormControlTextarea1.focus();
         exampleFormControlTextarea1.select();
-    }//if
+        exampleFormControlTextarea1.style.border = "solid red 1px"
+    }else{
+        exampleFormControlTextarea1.style.border = ""
+    }
 
     if(exampleFormControlInput1.value.match(emailRegex) == null){
         alertError.style.display = "block";
         alertError.innerHTML += "<br/>El correo electrónico no es válido"
-    }//
+        exampleFormControlInput1.style.border = "solid red 1px"
+    }else{
+        exampleFormControlInput1.style.border = ""
+    }
     
     let RFCRegex = /^[A-Z]{4}[0-9]{6}[A-Z0-9]{3}$/;
     // let RFCRegex = /^[A-Z]{4}\d{6}\w{3}$/;
@@ -67,7 +73,10 @@ btnEnviar.addEventListener("click", function(event){
     if(exampleFormControlInput2.value.match(RFCRegex) == null){
         alertError.style.display = "block";
         alertError.innerHTML += "<br/>El RFC no es válido"
-    }//
+        exampleFormControlInput2.style.border = "solid red 1px"
+    }else{
+        exampleFormControlInput2.style.border = ""
+    }
 
 
 
